@@ -12,4 +12,8 @@ public class ShoppingCart {
     public void checkout(String status){
         System.out.println("Shopping cart method is called");
     }
+
+    public int quantity(){
+        return 2;
+    }
 }

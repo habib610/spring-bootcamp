@@ -1,9 +1,7 @@
 package demo;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Aspect
@@ -21,4 +19,14 @@ public class LoggersAspect {
     public void afterLoggers(){
         System.out.println("After Loggers executed");
     }
+
+    @Pointcut("execution(* demo.ShoppingCart.quantity(..))")
+    public void afterReturnPointcut(){}
+
+    @AfterReturning(pointcut = "afterReturnPointcut()", returning = "retVal")
+    public void afterReturning(String retVal){
+        System.out.println("After Rutrn Value: " + retVal);
+    }
+
+
 }
