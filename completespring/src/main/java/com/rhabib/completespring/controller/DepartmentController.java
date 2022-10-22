@@ -13,21 +13,28 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
-//    Get list of departments
+    //    Get list of departments
     @GetMapping(path = "/departments")
-    public List<Department> fetchDepartment(){
+    public List<Department> fetchDepartment() {
         return departmentService.fetchDepartment();
     }
 
-//    Get department by Id
+    //    Get department by Id
     @GetMapping(path = "/departments/{id}")
-    public Department fetchDepartmentById(@PathVariable("id") Long departmentId){
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) {
         return departmentService.fetchDepartmentById(departmentId);
     }
 
+    //    Delete department by ID
+    @DeleteMapping(path = "/departments/{id}")
+    public String deleteDepartmentById(@PathVariable("id") Long departmentId) {
+        departmentService.deleteDepartmentById(departmentId);
+        return "Department with ID " + departmentId + " has been deleted";
+    }
 
+    //    Post a department
     @PostMapping(path = "/departments")
-    public Department saveDepartment(@RequestBody Department department){
+    public Department saveDepartment(@RequestBody Department department) {
         return departmentService.saveDepartment(department);
     }
 
