@@ -38,4 +38,16 @@ public class DepartmentController {
         return departmentService.saveDepartment(department);
     }
 
+    //    Update department
+    @PutMapping(path = "/departments/{id}")
+    public Department updateDepartment(@PathVariable("id") Long departmentId, @RequestBody Department department) {
+        return departmentService.updateDepartment(departmentId, department);
+    }
+
+    //    Get Department by name
+    @GetMapping(path = "/departments/name/{name}")
+    public Department fetchDepartmentByName(@PathVariable("name") String departmentName) {
+        return departmentService.fetchDepartmentByName(departmentName);
+    }
+
 }
