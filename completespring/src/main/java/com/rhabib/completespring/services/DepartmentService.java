@@ -5,7 +5,9 @@ import com.rhabib.completespring.entities.Department;
 import java.util.List;
 
 public interface DepartmentService {
-   public Department saveDepartment(Department department);
+    Department saveDepartment(Department department);
 
-   public List<Department> fetchDepartment();
+    List<Department> fetchDepartment();
+
+   Department fetchDepartmentById(Long departmentId);
 }
