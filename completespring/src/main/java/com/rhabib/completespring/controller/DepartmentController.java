@@ -2,6 +2,8 @@ package com.rhabib.completespring.controller;
 
 import com.rhabib.completespring.entities.Department;
 import com.rhabib.completespring.services.DepartmentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +13,14 @@ import java.util.List;
 @RestController
 public class DepartmentController {
 
+    public final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
     @Autowired
     private DepartmentService departmentService;
 
     //    Get list of departments
     @GetMapping(path = "/departments")
     public List<Department> fetchDepartment() {
+        LOGGER.info("Inside get department");
         return departmentService.fetchDepartment();
     }
 
@@ -37,6 +41,7 @@ public class DepartmentController {
 
     @PostMapping(path = "/departments")
     public Department saveDepartment(@Valid  @RequestBody Department department) {
+        LOGGER.info("Inside Post department");
         return departmentService.saveDepartment(department);
     }
 
