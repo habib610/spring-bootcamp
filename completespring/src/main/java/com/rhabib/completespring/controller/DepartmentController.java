@@ -1,6 +1,7 @@
 package com.rhabib.completespring.controller;
 
 import com.rhabib.completespring.entities.Department;
+import com.rhabib.completespring.error.DepartmentNotFoundException;
 import com.rhabib.completespring.services.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ public class DepartmentController {
 
     //    Get department by id
     @GetMapping(path = "/departments/{id}")
-    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) {
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         return departmentService.fetchDepartmentById(departmentId);
     }
 

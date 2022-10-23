@@ -1,12 +1,14 @@
 package com.rhabib.completespring.services;
 
 import com.rhabib.completespring.entities.Department;
+import com.rhabib.completespring.error.DepartmentNotFoundException;
 import com.rhabib.completespring.repositories.DepartmentRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
@@ -24,8 +26,14 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Department fetchDepartmentById(Long departmentId) {
-        return departmentRepositories.findById(departmentId).get();
+    public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException {
+
+        Optional<Department> department = departmentRepositories.findById(departmentId);
+        if(department.isEmpty()){
+            System.out.print("We ar inside rpo");
+            throw new DepartmentNotFoundException("Department not found");
+        }
+        return  department.get();
     }
 
     @Override

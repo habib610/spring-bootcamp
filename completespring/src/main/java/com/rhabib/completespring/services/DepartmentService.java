@@ -1,6 +1,7 @@
 package com.rhabib.completespring.services;
 
 import com.rhabib.completespring.entities.Department;
+import com.rhabib.completespring.error.DepartmentNotFoundException;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface DepartmentService {
 
     List<Department> fetchDepartment();
 
-    Department fetchDepartmentById(Long departmentId);
+    Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException;
 
     void deleteDepartmentById(Long departmentId);
 
