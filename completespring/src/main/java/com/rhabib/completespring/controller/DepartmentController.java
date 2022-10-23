@@ -5,6 +5,7 @@ import com.rhabib.completespring.services.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,7 @@ public class DepartmentController {
         return departmentService.fetchDepartment();
     }
 
-    //    Get department by Id
+    //    Get department by id
     @GetMapping(path = "/departments/{id}")
     public Department fetchDepartmentById(@PathVariable("id") Long departmentId) {
         return departmentService.fetchDepartmentById(departmentId);
@@ -33,8 +34,9 @@ public class DepartmentController {
     }
 
     //    Post a department
+
     @PostMapping(path = "/departments")
-    public Department saveDepartment(@RequestBody Department department) {
+    public Department saveDepartment(@Valid  @RequestBody Department department) {
         return departmentService.saveDepartment(department);
     }
 
