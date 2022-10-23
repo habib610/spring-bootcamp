@@ -30,7 +30,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         Optional<Department> department = departmentRepositories.findById(departmentId);
         if(department.isEmpty()){
-            System.out.print("We ar inside rpo");
             throw new DepartmentNotFoundException("Department not found");
         }
         return  department.get();
