@@ -66,3 +66,40 @@ completespring/!**/src/test/**/build/
 completespring/### VS Code ###
 completespring/.vscode/
 
+
+
+
+spring-jpa/HELP.md
+spring-jpa/target/
+spring-jpa/!.mvn/wrapper/maven-wrapper.jar
+spring-jpa/!**/src/main/**/target/
+spring-jpa/!**/src/test/**/target/
+### STS ###
+spring-jpa/.apt_generated
+spring-jpa/.classpath
+spring-jpa/.factorypath
+spring-jpa/.project
+spring-jpa/.settings
+spring-jpa/.springBeans
+spring-jpa/.sts4-cache
+
+
+### IntelliJ IDEA ###
+spring-jpa/.idea
+spring-jpa/*.iws
+spring-jpa/*.iml
+spring-jpa/*.ipr
+
+### NetBeans ###
+spring-jpa/nbproject/private/
+spring-jpa/nbbuild/
+spring-jpa/dist/
+spring-jpa/nbdist/
+spring-jpa/.nb-gradle/
+spring-jpa/build/
+spring-jpa/!**/src/main/**/build/
+spring-jpa/!**/src/test/**/build/
+
+spring-jpa/### VS Code ###
+spring-jpa/.vscode/
+
