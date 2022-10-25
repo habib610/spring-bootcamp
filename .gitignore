@@ -29,3 +29,40 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+#spring boot
+
+
+completespring/HELP.md
+completespring/target/
+completespring/!.mvn/wrapper/maven-wrapper.jar
+completespring/!**/src/main/**/target/
+completespring/!**/src/test/**/target/
+### STS ###
+completespring/.apt_generated
+completespring/.classpath
+completespring/.factorypath
+completespring/.project
+completespring/.settings
+completespring/.springBeans
+completespring/.sts4-cache
+
+
+### IntelliJ IDEA ###
+completespring/.idea
+completespring/*.iws
+completespring/*.iml
+completespring/*.ipr
+
+### NetBeans ###
+completespring/nbproject/private/
+completespring/nbbuild/
+completespring/dist/
+completespring/nbdist/
+completespring/.nb-gradle/
+completespring/build/
+completespring/!**/src/main/**/build/
+completespring/!**/src/test/**/build/
+
+completespring/### VS Code ###
+completespring/.vscode/
+
