@@ -83,6 +83,13 @@ class StudentRepositoryTest {
         System.out.println(student);
     }
     @Test
+    public void updateStudentFirstNameByEmailId(){
+        int student = studentRepository.updateStudentFirstNameByEmailId("Rahman", "studen3t@email.com");
+        System.out.println("studentsByEmailUPDATE===========================>>>");
+        System.out.println(student);
+    }
+
+    @Test
     public void getListStudent(){
        List<Student> studentList = studentRepository.findAll();
         System.out.println(studentList);
