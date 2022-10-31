@@ -28,4 +28,8 @@ public class Course {
     private Long courseId;
     private String title;
     private String credit;
+    @OneToOne(
+            mappedBy = "course"
+    )
+    private CourseMaterial courseMaterial;
 }

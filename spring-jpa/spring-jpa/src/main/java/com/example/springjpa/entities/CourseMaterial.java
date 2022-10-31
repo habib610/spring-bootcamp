@@ -1,9 +1,6 @@
 package com.example.springjpa.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
+@ToString(
+        exclude = "course" //REF to fetch types
+)
 
 public class CourseMaterial {
     @Id
@@ -26,7 +26,11 @@ public class CourseMaterial {
     )
     private Long courseMaterialId;
     private String url;
-    @OneToOne
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY //Lazy means exclude the other tables
+//                                  EGGER means include all tables
+    )
     @JoinColumn(
             name = "course_id",
             referencedColumnName = "courseId"
