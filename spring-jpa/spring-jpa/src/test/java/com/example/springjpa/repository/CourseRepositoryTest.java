@@ -56,4 +56,14 @@ class CourseRepositoryTest {
         System.out.println("courses:" + courses);
 
     }
+    @Test
+    public void findByTitleContaining() {
+        Pageable firstPageWithThreeRecords = PageRequest.of(0, 2);
+
+        List<Course> courses = courseRepository.findByTitleContaining("P", firstPageWithThreeRecords).getContent();
+        System.out.println("courses:" + courses);
+
+    }
+
+
 }
