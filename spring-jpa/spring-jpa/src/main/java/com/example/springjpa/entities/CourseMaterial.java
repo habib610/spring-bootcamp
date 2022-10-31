@@ -27,7 +27,8 @@ public class CourseMaterial {
     private Long courseMaterialId;
     private String url;
     @OneToOne(
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.ALL, // if there is a related table t
+                                        // hen if column not exist this will create
             fetch = FetchType.LAZY //Lazy means exclude the other tables
 //                                  EGGER means include all tables
     )
