@@ -4,19 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "tbl_student",
-uniqueConstraints = @UniqueConstraint(
+@Entity
+@Table(uniqueConstraints =
+@UniqueConstraint(
         name = "email_unique",
-        columnNames = "email_address"
+        columnNames = "student_email"
 )
 )
 public class Student {
@@ -33,9 +32,13 @@ public class Student {
     private Long studentId;
     private String firstName;
     private String lastName;
-    @Column(name = "email_address", unique = true, nullable = false)
-    private String emailId;
 
-    @Embedded
+    @Column(
+            name = "student_email",
+            unique = true,
+            nullable = false
+    )
+    private String studentEmail;
+@Embedded
     private Guardian guardian;
 }

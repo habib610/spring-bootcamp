@@ -11,41 +11,75 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
+//@DataJpaTest // this will flush the data after testing done
 class StudentRepositoryTest {
     @Autowired
     private StudentRepository studentRepository;
-
-    @Test
+   @Test
     public void saveStudent(){
         Student student = Student.builder()
-                .emailId("habib@gmail.com")
-                .firstName("Habib")
-                .lastName("Rahman")
-//                .guardianName("Guardian")
+                .studentEmail("haib@gmail.com")
+                .firstName("habib")
+                .lastName("rahman")
 //                .guardianEmail("guardian@email.com")
-//                .guardianMobile("039348940")
+//                .guardianPhone("3030349409")
+//                .guardianAddress("bengaloro")
+//                .guardianName("guardian")
                 .build();
-
-    studentRepository.save(student);
-    }
-
-    @Test
-    public void saveStudentWithGuardian(){
-        Guardian guardian = Guardian.builder()
-                .name("GuardianNew")
-                .email("guardian1@gmail.com").mobile("93893830").build();
-        Student student = Student.builder()
-                .emailId("habib1@gmail.com")
-                .firstName("Habib1")
-                .lastName("Rahman1").guardian(guardian)
-                .build();
-
         studentRepository.save(student);
     }
+@Test
+    public void saveStudentWithGuaridain() {
+        Guardian guardian = Guardian.builder()
+                .email("guardian3@email.com")
+                .name("guardian3")
+                .phone("039498u3459").address("mumbai").build();
+        Student studentWithGuardian = Student.builder()
+                .studentEmail("student3@gmail.com")
+                .firstName("rahman")
+                .lastName("lastName1")
+                .studentEmail("studen3t@email.com")
+                .guardian(guardian)
+                .build();
+    studentRepository.save(studentWithGuardian);
+    }
 
     @Test
-    public void getStudents(){
-        List<Student> studentList = studentRepository.findAll();
-        System.out.println("studentList: " + studentList);
+    public void findStudentByFirstName(){
+       List<Student> student = studentRepository.findStudentByFirstName("rahman");
+        System.out.println("student===========================>>>");
+        System.out.println(student);
+    }
+
+    @Test
+    public void findStudentByGuardianName(){
+        List<Student> student = studentRepository.findByGuardianName("guardian2");
+        System.out.println("student===========================>>>");
+        System.out.println(student);
+    }
+    @Test
+    public void findStudentByEmailId(){
+        List<Student> student = studentRepository.getStudentByStudentEmail("student@email.com");
+        System.out.println("studentEmail===========================>>>");
+        System.out.println(student);
+    }
+    @Test
+    public void getStudentFirstNameByEmailId(){
+        String student = studentRepository.getStudentFirstNameByStudentEmail("student@email.com");
+        System.out.println("studentFirstName===========================>>>");
+        System.out.println(student);
+    }
+
+    @Test
+    public void getStudentByStudentEmailNative(){
+        List<Student> student = studentRepository.getStudentByStudentEmailNative("student@email.com");
+        System.out.println("studentsByEmailNative===========================>>>");
+        System.out.println(student);
+    }
+    @Test
+    public void getListStudent(){
+       List<Student> studentList = studentRepository.findAll();
+        System.out.println(studentList);
+
     }
 }
