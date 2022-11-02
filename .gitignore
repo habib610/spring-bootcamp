@@ -103,3 +103,38 @@ spring-jpa/!**/src/test/**/build/
 spring-jpa/### VS Code ###
 spring-jpa/.vscode/
 
+#sprsecurity
+
+sprsecurity/HELP.md
+sprsecurity/target/
+sprsecurity/!.mvn/wrapper/maven-wrapper.jar
+sprsecurity/!**/src/main/**/target/
+sprsecurity/!**/src/test/**/target/
+### STS ###
+sprsecurity/.apt_generated
+sprsecurity/.classpath
+sprsecurity/.factorypath
+sprsecurity/.project
+sprsecurity/.settings
+sprsecurity/.springBeans
+sprsecurity/.sts4-cache
+
+
+### IntelliJ IDEA ###
+sprsecurity/.idea
+sprsecurity/*.iws
+sprsecurity/*.iml
+sprsecurity/*.ipr
+
+### NetBeans ###
+sprsecurity/nbproject/private/
+sprsecurity/nbbuild/
+sprsecurity/dist/
+sprsecurity/nbdist/
+sprsecurity/.nb-gradle/
+sprsecurity/build/
+sprsecurity/!**/src/main/**/build/
+sprsecurity/!**/src/test/**/build/
+
+sprsecurity/### VS Code ###
+sprsecurity/.vscode/
